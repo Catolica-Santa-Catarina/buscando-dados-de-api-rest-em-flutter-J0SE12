@@ -4,7 +4,7 @@ import 'package:tempo_template/utilities/constants.dart';
 import '../services/weather.dart';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({Key? key, this.localWeatherData, required locationWeather}) : super(key: key);
+  const LocationScreen({required this.localWeatherData, Key? key, required getLocationWeather, required locationWeather}) : super(key: key);
   final dynamic localWeatherData;
 
   @override
@@ -50,7 +50,10 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      var weatherData = await weather.getLocationWeather();
+                      updateUI(weatherData);
+                    },
                     child: const Icon(
                       Icons.near_me,
                       size: 50.0,
