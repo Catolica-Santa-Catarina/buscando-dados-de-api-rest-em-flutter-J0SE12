@@ -4,7 +4,7 @@ import 'package:tempo_template/utilities/constants.dart';
 import '../services/weather.dart';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({required this.localWeatherData, Key? key, required getLocationWeather, required locationWeather}) : super(key: key);
+  const LocationScreen({required this.localWeatherData, Key? key}) : super(key: key);
   final dynamic localWeatherData;
 
   @override

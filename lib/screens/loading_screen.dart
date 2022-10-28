@@ -1,19 +1,16 @@
-import 'dart:convert';
-import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import '../screens/location_screen.dart';
 import '../services/weather.dart';
 import 'package:tempo_template/services/location.dart';
-import '../utilities/constants.dart';
 import 'package:flutter/src/widgets/navigator.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../services/location.dart';
 
 const apiKey = '48dffcee1ec94cedee47ee637046b9bc';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
+
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
@@ -37,6 +34,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+
 
   late double latitude;
   late double longitude;
