@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:tempo_template/services/location.dart';
 import 'package:tempo_template/services/networking.dart';
 
@@ -11,8 +9,6 @@ class WeatherModel {
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.getCurrentLocation();
-
-
 
     NetworkHelper networkHelper = NetworkHelper(
         '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}'

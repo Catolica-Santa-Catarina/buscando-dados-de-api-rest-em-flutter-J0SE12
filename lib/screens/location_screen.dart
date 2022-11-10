@@ -18,6 +18,12 @@ class _LocationScreenState extends State<LocationScreen> {
   late String message;  // Frase para o usuário, de acordo com a temperatura
   WeatherModel weather = WeatherModel();
 
+  @override
+  void initState() {
+    super.initState();
+    updateUI(widget.localWeatherData);
+  }
+
   void updateUI(dynamic weatherData) {
     setState(() {
       var condition = weatherData['weather'][0]['id'];
@@ -71,22 +77,22 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 15.0),
                 child: Row(
-                  children: const [
+                  children: [
                     Text(
-                      '32°',
+                      '$temperatureº',
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '☀️',
+                      weatherIcon,
                       style: kConditionTextStyle,
                     )
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 15.0),
+              Padding(
+                padding: const EdgeInsets.only(right: 15.0),
                 child: Text(
-                  'É tempo de 🍦 em Joinville!',
+                  '$message em $cityName!',
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
